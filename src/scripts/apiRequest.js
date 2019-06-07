@@ -9,3 +9,5 @@ export async function getHtml(txtInput) {
       return(error)
    }
 }
+
+//:todo: fix with https and http.

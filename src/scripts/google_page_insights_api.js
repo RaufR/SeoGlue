@@ -14,3 +14,7 @@ export function getInsight(txtInput, key) {
       return(error)
   }
 }
+
+//todo: visualize data into frontend, currently this data output in console.
+
+
