@@ -32,7 +32,7 @@ npm test
 ## Avoiding CORS error in DEV environment.
 
 ```
-Use MoesifCors in google chrom
+Use MoesifCors in google chrome
 https://chrome.google.com/webstore/detail/moesif-orign-cors-changer/digfbfaphojjndkpccljibejjbppifbc
 
 ```
