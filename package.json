@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "apexcharts": "^3.8.4",
     "array-counter": "^1.0.0",
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
@@ -18,6 +19,7 @@
     "start": "^5.1.0",
     "unfluff": "^3.2.0",
     "vue": "^2.5.2",
+    "vue-apexcharts": "^1.4.0",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
