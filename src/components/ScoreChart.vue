@@ -6,6 +6,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import ApexCharts from "apexcharts";
 import VueApexCharts from "vue-apexcharts";
 import HelloWorld from "./HelloWorld";

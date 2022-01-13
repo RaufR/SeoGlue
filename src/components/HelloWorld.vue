@@ -1,35 +1,35 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <p>{{ warning }}</p>
     <input class="input" placeholder="example: netflix.com" v-model="txtInput" type="text" />
-    <button class="button" v-on:click="insight()" type="button" name="button">Google insight Go!</button>
+    <!--- <button class="button" v-on:click="insight()" type="button" name="button">Google insight Go!</button> -->
     <button class="button" v-on:click="cheers()" type="button" name="button">Cheerio extract!</button>
     <ScoreChart></ScoreChart>
 
     <h2>Score</h2>
-    <div class="result">Score : {{ score }}</div>
-    <h2>HTML PARSE</h2>
-
+    <div>Total score :{{ score }}</div>
     <div class="result">
-      <p>Title:</p>
+      <h2>Title:</h2>
       {{ htmlParse.title }}
     </div>
     <h2>LINK PARSE</h2>
-    <div class="result">{{ linkParse }}</div>
+    <div class="result"> <pre><code> {{ linkParse }} </code></pre></div>
     <h2>Doc Check</h2>
-    <div class="result">{{ docCheck }}</div>
+    <div class="result"><pre><code>{{ docCheck }}</code></pre></div>
     <h2>Usability</h2>
-    <div class="result">{{ usability }}</div>
+    <div class="result"><pre><code>{{ usability }}</code></pre></div>
     <h2>Falsh Check</h2>
-    <div class="result">{{ flashCheck }}</div>
+    <div class="result"><pre><code>{{ flashCheck }}</code></pre></div>
     <h2>SEO keywords</h2>
-    <div class="result">{{ seoKeywords }}</div>
+    <div class="result"><pre><code>{{ seoKeywords }}</code></pre></div>
     <h2>Optimizations</h2>
-    <div class="result">{{ optimization }}</div>
+    <div class="result"><pre><code>{{ optimization }}</code></pre></div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import { getInsight } from "../scripts/google_page_insights_api";
 import { getHtml } from "../scripts/apiRequest";
 import { getLinkParse } from "../scripts/linkParse";
@@ -47,12 +47,11 @@ import ScoreChart from "./ScoreChart";
 export default {
   name: "HelloWorld",
   props: ["score"],
-  components: {
-    ScoreChart
-  },
+
   data() {
     return {
       msg: "Web extraction",
+      warning: "Please remove http:// or https:// before the siteURL",
       txtInput: "",
       bootUpTime: "n/a",
       htmlParse: "",
@@ -94,7 +93,7 @@ export default {
 <style scoped>
 h1,
 h2 {
-  font-weight: normal;
+  font-weight: bold;
 }
 ul {
   list-style-type: none;
@@ -127,20 +126,48 @@ a {
 }
 .button {
   margin-top: 5vh;
-  padding: 1vh;
-  background-color: #fabc60;
-  border-width: 0;
+  position: relative;
+  background-color: #04AA6D;
+  border: none;
   border-radius: 5px;
+  font-size: 14px;
+  color: #FFFFFF;
+  padding: 1vh;
+  width: 10vw;
+  text-align: center;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+.button:after {
+  content: "";
+  background: #90EE90;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px!important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
 }
 .result {
-  margin-top: 10vh;
+  margin-bottom: 10vh;
   width: 80vw;
   max-width: 80vw;
 }
+.result_score {
+  font-weight: bold;
+}
 ::placeholder {
   color: #e9e4e6;
-}
-.result {
-  padding-bottom: 5%;
 }
 </style>
