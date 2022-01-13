@@ -11,7 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "apexcharts": "^3.8.4",
+    "apexcharts": "^3.24.0",
     "array-counter": "^1.0.0",
     "axios": "^0.18.0",
     "cheerio": "^1.0.0-rc.2",
